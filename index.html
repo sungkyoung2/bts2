@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 모바일은 화면크기를 자동으로 줄여서 표현하는 방식. 1:1사이즈의 대응을 위하여 viewport코드를 추갛ㄴ다. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#main_slide_bt>li').click(function(){
+                $(this).css({'opacity':'1'}).siblings().css({'opacity':'0.5'})
+                $('#main_slide').animate({'left':$(this).index()*-100+'%'})
+            })
+            $('#menu_icon1').click(function(){
+                $(this).hide();
+                $('#menu_popup').show()
+                $('body').css({'overflow':'hidden'})
+            })
+            $('#menu_icon2').click(function(){
+                $('#menu_popup').hide();
+                $('#menu_icon1').show()
+                $('body').css({'overflow':'auto'})
+            })
+            
+            $('#profile_popup_close').click(function(){
+                $('#profile_popup').hide()
+            })
+            $('#jhope').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-jhope.jpg'})
+                $('#profile_popup_textbox>h4').text('제이홉')
+                $('#profile_popup_textbox>p').text('생일: 1994년 2월 18일')
+            })
+            $('#jimin').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-jimin.jpg'})
+                $('#profile_popup_textbox>h4').text('지민')
+                $('#profile_popup_textbox>p').text('생일: 1995년 10월 13일')
+            })
+            $('#jin').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-jin.jpg'})
+                $('#profile_popup_textbox>h4').text('진')
+                $('#profile_popup_textbox>p').text('생일: 1992년 12월 4일')
+            })
+            $('#jk').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-jk.jpg'})
+                $('#profile_popup_textbox>h4').text('정국')
+                $('#profile_popup_textbox>p').text('생일: 1997년 9월 1일')
+            })
+            $('#rm').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-rm.jpg'})
+                $('#profile_popup_textbox>h4').text('RM')
+                $('#profile_popup_textbox>p').text('생일: 1994년 9월 12일')
+            })
+            $('#suga').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-suga.jpg'})
+                $('#profile_popup_textbox>h4').text('슈가')
+                $('#profile_popup_textbox>p').text('생일: 1993년 3월 9일')
+            })
+            $('#v').click(function(){
+                $('#profile_popup').fadeIn(300)
+                $('#profile_popup_box').css({'top':$(this).offset().top})
+                $('#profile_popup_img').attr({'src':'member-v.jpg'})
+                $('#profile_popup_textbox>h4').text('뷔')
+                $('#profile_popup_textbox>p').text('생일: 1995년 12월 30일')
+            })
+        })
+    </script>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        a{text-decoration: underline;color: inherit;}
+        button{cursor: pointer;}
+        body,html{width: 100%;height:auto;}
+        body{position: relative;}
+        header{width: 100%;height: 63px;background-color:rgba(0,0,0,0.2); position: fixed;left: 0;top: 0;z-index: 9999;}
+        #menu_icon1{float: left;height: 100%;margin-left: 15px;cursor: pointer;}
+        #logo{position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;width:55px;}
+        #lang{float: right;line-height: 63px;color: #fff;font-size: 14px;letter-spacing: -0.5px;margin-right: 30px;position: relative;cursor: pointer;}
+        .lang_sub{width: 85px;height: 268px;position: absolute;left:-28px;top:55px;text-align: center;padding-top: 8px;background: url(lang_arrow.png)center top no-repeat;display: none;background-color: #fff;}
+        #lang:hover>.lang_sub{display: block;}
+        .lang_sub>li{width: 100%;height: 65px;line-height: 65px;border-bottom: 1px solid #ccc;color: #555;cursor: pointer;}
+        .lang_sub>li:nth-child(1){background-color: #000;color: #fff;}
+        .lang_sub>li:hover{background-color: #000;color: #fff;cursor: pointer;}
+        /*  */
+        #profile{width: 100%;background-color: #ffdc00;overflow: hidden;}
+        #about_bts{width: 1024px;margin: auto;margin-top: 63px;overflow: hidden;}
+        #about_bts_img{width: 100%;}
+        #about_bts>h2{width: 30%;float: left;color: #fff;margin-right: 5%;font-size:55px;margin-top: 10px;text-shadow:0 0 5px rgba(0,0,0,0.3);position: relative;}
+        #about_bts>p{width: 60%;float: right;margin-top: 30px;font-weight:500;letter-spacing: -1px;}
+        #profile_img_bg{width: 100%;background-color:rgba(0,0,0,0.2);margin-top: 100px;}
+        #profile_img{width: 100%;max-width:1300px; overflow: hidden;margin: auto;}
+        #profile_img>li{float: left;width: 25%;position: relative;}
+        #profile_img>li>img{width: 100%;vertical-align: top;}
+        #profile_img>li>h3{width: 100%;text-align: center;line-height: 18.5vw;color: #fff;font-size: 1.5vw;position: absolute;left: 0;top: 0;}
+        .profile_img{cursor: pointer;}
+        /*  */
+        #profile_popup{width: 100%;height: 100%;position: absolute;left: 0;top: 0;background-color:rgba(0,0,0,0.5);display: none;}
+        #profile_popup_box{width: 1300px;position: absolute;top:850px;left: 0;right: 0;margin: auto;}
+        #profile_popup_img{width: 50%;float: left;vertical-align: top;}
+        #profile_popup_textbox{width: 50%;float: left;background-color:rgba(0,0,0,0.5);position: relative;}
+        #profile_popup_textbox>img{width: 100%;vertical-align: top;}
+        #profile_popup_textbox>h4{color: #fff;font-size: 32px;margin-top: 40%;margin-left: 5%;position: absolute;left: 0;top: 0;letter-spacing: -1px;}
+        #profile_popup_textbox>p{color: #fff;font-size: 16px;margin-top: 50%;margin-left: 5%;position: absolute;left: 0;top: 0;letter-spacing: -1px;}
+        #profile_popup_close{position: absolute;right: 0;top: 0;cursor: pointer;}
+
+        /*  */
+        footer{width: 100%;height: 60px;background-color: #272727;position: fixed;left: 0;bottom: 0;}
+        #footer_icon{overflow: hidden;margin-left: 20px;float: left;}
+        #footer_icon>li{float: left;width: 30px;height: 30px;border-radius: 30px;margin-right:10px;background-color: #111;margin-top: 15px;cursor: pointer;}
+        #footer_icon>li>img{width: 100%;opacity: 0.5;}
+        #footer_icon>li:hover>img{opacity: 1;}
+        #footer_select_menu{width:350px;height: 40px;position: absolute;left: 0;right: 0;top: 0;margin: auto;text-align: center;border-bottom: 1px solid #999;line-height: 36px;font-size: 14px;color: #999;font-weight: 900;letter-spacing: -0.5px;background: url(footer_icon2/footer_arrow2.png)right 20px center no-repeat;background-size: 12px;}
+        .footer_select_menu_sub{width: 100%;position: absolute;bottom: 40px;left: 0;display: none;}
+        #footer_select_menu:hover{background: url(footer_icon2/footer_arrow1.png)right 20px center no-repeat;background-size: 12px;}
+        #footer_select_menu:hover>.footer_select_menu_sub{display: block;}
+        .footer_select_menu_sub>li{width: 100%;padding: 5px 0;color: #ccc;background-color: #333;text-align: center;border-bottom: 1px solid #555;}
+        .footer_select_menu_sub>li:last-child{border: none;}
+        .footer_select_menu_sub>li:hover{background-color: #000;color: #fff;cursor: pointer;}
+        #footer_right{color: #999;float: right;text-align: right;margin-right:30px;margin-top: 11px;}
+        #footer_right>h6{font-size: 10px;font-weight: 400;line-height: 20px;}
+        #footer_right>p{font-size: 9px;font-weight: 400;line-height:10px;float: right;}
+        /*  */
+        #menu_popup{width: 100%;height: 100%;position: fixed;left: 0;top: 0;background-color:rgba(0,0,0,0.6);color: #fff;z-index: 999999;display: none;}
+        #menu_popup_leftbg{background-color:rgba(0,0,0,0.4);width: 50%;height: 100%;float: left;position: relative;}
+        #menu_popup_leftbg>ul{width: 370px;height: 460px;position: absolute;right: 0;top: 0;bottom: 0;margin: auto;}
+        #menu_popup_leftbg>ul>li{width: 100%;height: 92px;line-height: 91px;text-align: center;border-bottom: 1px solid #fff;box-sizing: border-box;opacity: 0.6;}
+        #menu_popup_leftbg>ul>li:nth-child(3){opacity: 1;border-bottom: 2px solid #fff;}
+        #menu_popup_rightbg{background-color:rgba(0,0,0,0.7);width: 50%;height: 100%;float: right;position: relative;}
+        #menu_popup_rightbg>ul{width:90%;height: 460px;position: absolute;left:15%;top: 0;bottom: 0;margin: auto;}
+        #menu_popup_rightbg>ul>li{line-height: 8vh;}
+        #menu_popup_rightbg>ul>li:nth-child(1){margin-top:60px;}
+        #menu_popup_rightbg>ul>li:nth-child(2){font-weight: 900;text-shadow:2px 2px 5px #fff;cursor: pointer;}
+        #menu_icon2{margin-left: 12px;width:67px;cursor: pointer;position: absolute;left: 0;top: 0;}
+
+    </style>
+    <style>
+        @media all and (min-width:320px){/*320~767 모바일*/
+            body{height:auto;}
+            header{height:90px;}
+            #logo{width: 60px;}
+            #lang{font-size: 24px;line-height: 90px;}
+            .lang_sub{top:82px;}
+            #about_bts{width:94%;}
+            #about_bts>h2{font-size: 12vw;width: 100%;text-align: left;margin-top: -50px;}
+            #about_bts>p{width: 100%;margin-right: 0;}
+            #profile_img>li{width: 50%;}
+            .profile_moblie_hide{display: none;}
+            .profile_moblie_show{display: block;}
+            #profile_img>li>h3{line-height: 50vw;font-size: 8vw;}
+            #profile_popup_box{width: 100%;padding-top:0;}
+            #profile_popup_img{width:100%;}
+            #profile_popup_textbox{width: 100%;text-align: center;}
+            #profile_popup_textbox>h4{width: 100%;margin-top: 10%;margin-left:0;}
+            #profile_popup_textbox>p{width: 100%;margin-top: 20%;margin-left:0;}
+            #profile_popup_textbox>img{width: 100%;height: 50vw;}
+            #profile_popup_close{right: 50%;margin-right: -45px;top:-100px;}
+            footer{position:relative;height:auto;}
+            #footer_icon{float:none;text-align: center;}
+            #footer_icon>li{width:6%;height:5.5vw;margin-right:2%;float: none;display: inline-block;}
+            #footer_right{float: none;text-align: center;margin-right: 0;}
+            #footer_select_menu{position: relative;width:90%;}
+            #footer_right>p{width: 100%;float: none;}
+            #menu_icon2{margin-left:4%;width:15%;}
+            #menu_popup_leftbg>ul{width: 100%;}
+        }
+        @media all and (min-width:768px){/*768~ 태블릿*/
+            body{height:auto;}
+            header{height: 90px;}
+            #logo{width: 55px;}
+            #lang{font-size: 14px;line-height:63px;}
+            .lang_sub{top: 55px;}
+            #about_bts{width: 100%;}
+            #about_bts>h2{font-size: 4vw;width: 30%;text-align: right;margin-top: 10px;}
+            #about_bts>p{width: 60%;margin-right: 5%;}
+            #profile_img>li{width: 25%;}
+            .profile_moblie_hide{display:block;}
+            .profile_moblie_show{display:none;}
+            #profile_img>li>h3{line-height: 25vw;font-size: 2.25vw;}
+            #profile_popup_box{width: 100%;padding-top: 0;}
+            #profile_popup_img{width: 50%;}
+            #profile_popup_textbox{width: 50%;text-align: left;}
+            #profile_popup_textbox>img{width: 100%;height:100%;}
+            #profile_popup_textbox>h4{width: 100%;margin-top: 40%;margin-left: 5%}
+            #profile_popup_textbox>p{width: 100%;margin-top: 50%;margin-left: 5%}
+            #profile_popup_close{right: 0;margin-right: 0;top: 0;}
+            footer{position: fixed;height: 60px;}
+            #footer_icon{float: left;}
+            #footer_icon>li{width: 22px;height: 22px;margin-right: 5px;float: left;display: block;}
+            #footer_right{float: right;text-align: right;margin-right: 0;}
+            #footer_select_menu{position:absolute;width:30%;}
+            #footer_right>p{width:80%;float: right;}
+            #menu_icon2{margin-left: 12px;width:67px;}
+            #menu_popup_leftbg>ul{width:370px;}
+        }
+        @media all and (min-width:1024px){/*1024 pc*/
+            body{height:auto;}
+            header{height: 63px;}
+            #logo{width: 55px;}
+            #lang{font-size: 14px;line-height:63px;}
+            .lang_sub{top: 55px;}
+            #about_bts{width: 1024px;}
+            #about_bts>h2{font-size: 55px;width: 30%;text-align: right;margin-top: 10px;}
+            #about_bts>p{width: 60%;margin-right: 5%;}
+            #profile_img>li{width: 25%;}
+            .profile_moblie_hide{display:block;}
+            .profile_moblie_show{display:none;}
+            #profile_img>li>h3{line-height: 25vw;font-size: 2.25vw;}
+            #profile_popup_box{width: 100%;padding-top: 0;}
+            #profile_popup_img{width: 50%;}
+            #profile_popup_textbox{width: 50%;text-align: left;}
+            #profile_popup_textbox>img{width: 100%;height:100%;}
+            #profile_popup_textbox>h4{width: 100%;margin-top: 40%;margin-left: 5%}
+            #profile_popup_textbox>p{width: 100%;margin-top: 50%;margin-left: 5%}
+            #profile_popup_close{right: 0;margin-right: 0;top: 0;}
+            footer{position: fixed;height: 60px;}
+            #footer_icon{float: left;}
+            #footer_icon>li{width: 30px;height: 30px;margin-right: 10px;float: left;display: block;}
+            #footer_right{float: right;text-align: right;margin-right: 30px;}
+            #footer_select_menu{position:absolute;width: 350px;}
+            #footer_right>p{width:100%;float: right;}
+            #menu_icon2{margin-left: 12px;width:67px;}
+            #menu_popup_leftbg>ul{width: 370px;}
+            
+        }
+        @media all and (min-width:1300px){
+            #profile_img>li>h3{line-height: 325px;font-size: 30px;}
+            #profile_popup_box{width: 1300px;}
+            #profile_popup_img{width: 50%;}
+            #profile_popup_textbox{width: 50%;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="btn-open-m.png" alt="" id="menu_icon1">
+
+        <img src="logo-m.png" alt="" id="logo">
+        <h3 id="lang">KOR
+            <ul class="lang_sub">
+                <li>KOR</li>
+                <li>ENG</li>
+                <li>JPN</li>
+                <li>CHN</li>
+            </ul>
+        </h3>
+    </header>
+    <!--  -->
+    <div id="profile">
+        <div id="about_bts">
+            <img src="profile-kv.png" alt="" id="about_bts_img">
+            <h2>ABOUT BTS</h2>
+            <p>2013년 데뷔해 국내외 신인상을 휩쓴 방탄소년단은 명실상부 한국을 대표하는 최정상 보이 그룹으로 성장했다. 전 세계적으로 방탄소년단 열풍을 일으키며 ‘21세기 팝 아이콘’으로 불린다.<br>미국 빌보드, 영국 오피셜 차트, 일본 오리콘을 비롯해 아이튠즈, 스포티파이, 애플뮤직 등 세계 유수의 차트 정상에 올랐고, 음반 판매량과 뮤직비디오 조회수, SNS 지수 등에서도 독보적인 기록을 써 내려가고 있다. 특히, 방탄소년단은 한 주에 빌보드 ‘핫 100’ 차트와 ‘빌보드 200’ 차트 정상을 동시 정복한 최초의 그룹이며, 통산 ‘빌보드 200’ 5차례, ‘핫 100’ 4차례 1위를 차지했다.<br>또한, ‘제63회 그래미 어워드’에서 한국 가수 최초로 단독 무대를 펼쳐 ‘빌보드 뮤직 어워드’와 ‘아메리칸 뮤직 어워드’, ‘그래미 어워드’까지 미국 3대 음악 시상식 무대에서 공연하는 기록을 세웠다. 방탄소년단은 스타디움 투어를 개최하며 전 세계 콘서트 시장에서도 글로벌 아티스트로서의 입지를 다져 왔으며, UN 연설과 LOVE MYSELF 캠페인 등을 통해 선한 영향력을 실천하고 있다.</p>
+        </div>
+        <div id="profile_img_bg">
+            <ul id="profile_img">
+                <li><img src="transparent.png" alt=""><h3>MEMBER</h3></li>
+                <li class="profile_img" id="jhope"><img src="member-jhope.jpg" alt=""></li>
+                <li><img src="transparent.png" alt="" class="profile_moblie_hide"></li>
+                <li class="profile_img" id="jimin"><img src="member-jimin.jpg" alt=""></li>
+                <li><img src="transparent.png" alt="" class="profile_moblie_show"></li>
+                <li class="profile_img" id="jin"><img src="member-jin.jpg" alt=""></li>
+                <li><img src="transparent.png" alt="" class="profile_moblie_hide"></li>
+                <li class="profile_img" id="jk"><img src="member-jk.jpg" alt=""></li>
+                <li><img src="transparent.png" alt="" class="profile_moblie_show"></li>
+                <li class="profile_img" id="rm"><img src="member-rm.jpg" alt=""></li>
+                <li><img src="transparent.png" alt="" class="profile_moblie_hide"></li>
+                <li class="profile_img" id="suga"><img src="member-suga.jpg" alt=""></li>
+                <li class="profile_img" id="v"><img src="member-v.jpg" alt=""></li>
+                <li><img src="transparent.png" alt="" class="profile_moblie_hide"></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!--  -->
+    <div id="profile_popup">
+        <div id="profile_popup_box">
+            <img src="member-jhope.jpg" alt="" id="profile_popup_img">
+            <div id="profile_popup_textbox">
+                <img src="transparent.png" alt="">
+                <h4>제이홉</h4>
+                <p>생일: 1994년 2월 18일</p>
+            </div>
+            <img src="popup-close-m.png" alt="" id="profile_popup_close">
+        </div>
+    </div>
+    <!--  -->
+    <footer>
+        <ul id="footer_icon">
+            <li><img src="footer_icon2/twitter-star_w.png" alt=""></li>
+            <li><img src="footer_icon2/twitter_w.png" alt=""></li>
+            <li><img src="footer_icon2/weibo-member_w.png" alt=""></li>
+            <li><img src="footer_icon2/weibo_w.png" alt=""></li>
+            <li><img src="footer_icon2/weverse_w.png" alt=""></li>
+            <li><img src="footer_icon2/youku_w.png" alt=""></li>
+            <li><img src="footer_icon2/youtube_w.png" alt=""></li>
+        </ul>
+        <div id="footer_select_menu">
+            FAMILY SITES
+            <ul class="footer_select_menu_sub">
+                <li>HYBE CO., LTD.</li>
+                <li>BIG HIT AUDITION</li>
+                <li>WEVERSE SHOP</li>
+                <li>WEVERSE</li>
+                <li>TOMORROW X TOGETHER OFFICIAL WEBSITE</li>
+                <li>LEE HYUN OFFICIAL WEBSITE</li>
+            </ul>
+        </div>
+        <div id="footer_right">
+            <h6>관련사이트</h6>
+            <p>COPYRIGHT © 2021 BIG HIT MUSIC / HYBE. ALL RIGHTS RESERVED</p>
+        </div>
+    </footer>
+    <!--  -->
+    <div id="menu_popup">
+        <div id="menu_popup_leftbg">
+            <ul>
+                <li>HOME</li>
+                <li>ABOUT</li>
+                <li>BTS</li>
+                <li>TOMORROW X TOGETHER</li>
+                <li>LEE HYUN</li>
+            </ul>
+        </div>
+        <div id="menu_popup_rightbg">
+            <ul>
+                <li>HOME</li>
+                <li>PROFILE</li>
+                <li>DISCOGRAPHY</li>
+                <li>SCHEDULE</li>
+                <li>TOUR</li>
+            </ul>
+        </div>
+        <img src="btn-close-m.png" alt="" id="menu_icon2">
+    </div>
+</body>
+</html>
